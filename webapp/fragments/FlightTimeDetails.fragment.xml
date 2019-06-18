@@ -1,0 +1,36 @@
+<core:FragmentDefinition xmlns:m="sap.m" xmlns:mvc="sap.ui.core.mvc" xmlns:semantic="sap.m.semantic"
+	xmlns:footerbar="sap.ushell.ui.footerbar" xmlns="sap.uxap" xmlns:layout="sap.ui.layout" xmlns:core="sap.ui.core"
+	xmlns:f="sap.ui.layout.form">
+	<m:VBox>
+		<f:SimpleForm id="flightTimeDetails" editable="true" layout="ResponsiveGridLayout" labelSpanXL="4" labelSpanL="4" labelSpanM="12"
+			labelSpanS="12" adjustLabelSpan="false" emptySpanXL="0" emptySpanL="0" emptySpanM="0" emptySpanS="0" columnsXL="2" columnsL="2" columnsM="1"
+			singleContainerFullSize="false">
+			<f:content>
+				<core:Title text="{i18n>TIT_ARRIVAL_FLIGHT_TXT}" emphasized="true" level="H3"/>
+				
+				<m:Label text="{i18n>LBL_ACTUAL_DEPART_DATE_TXT}"/>
+					<m:Input editable="false" width="12rem"
+						value="{ path: 'Predepdate', type: 'sap.ui.model.odata.type.DateTime', formatOptions: { GMT: true,pattern : 'dd MMM yyyy' } } { path : 'Predeptime', type: 'sap.ui.model.odata.type.Time', formatOptions: { pattern: 'h:mm:ss' }}"/>
+						
+				<m:Label text="{i18n>LBL_ACTUAL_ARRIVAL_DATE_TXT}"/>
+				<m:Input type="Text" editable="false" width="12rem"
+					value="{ path: 'Prearrdate', type: 'sap.ui.model.odata.type.DateTime', formatOptions: { GMT: true,pattern : 'dd MMM yyyy' } } { path : 'Prearrtime', type: 'sap.ui.model.odata.type.Time', formatOptions: { pattern: 'h:mm:ss' }}"/>
+				<m:Label text="{i18n>LBL_TOUCHDOWN_DATE_TXT}"/>
+				<m:Input editable="false" width="12rem"
+					value="{ path: 'TouchdnDate', type: 'sap.ui.model.odata.type.DateTime', formatOptions: { GMT: true,pattern : 'dd MMM yyyy' } } { path : 'TouchdnTime', type: 'sap.ui.model.odata.type.Time', formatOptions: { pattern: 'h:mm:ss' }}"/>
+				<core:Title text="{i18n>LBL_DEPAT_FLIGHT_TXT}" emphasized="true" level="H3"/>
+				
+				<m:Label text="{i18n>LBL_ACTUAL_DEPART_DATE_TXT}"/>
+					<m:Input editable="false" width="12rem"
+						value="{ path: 'Depdate', type: 'sap.ui.model.odata.type.DateTime', formatOptions: { GMT: true,pattern : 'dd MMM yyyy' } } { path : 'Deptime', type: 'sap.ui.model.odata.type.Time', formatOptions: { pattern: 'h:mm:ss' }}"/>
+					<m:Label text="{i18n>LBL_ACTUAL_ARRIVAL_DATE_TXT}"/>
+				<m:Input type="Text" editable="false" width="12rem"
+					value="{ path: 'Arrdate', type: 'sap.ui.model.odata.type.DateTime', formatOptions: { GMT: true,pattern : 'dd MMM yyyy' } } { path : 'Arrtime', type: 'sap.ui.model.odata.type.Time', formatOptions: { pattern: 'h:mm:ss' }}"/>		
+						
+				<m:Label text="{i18n>LBL_TAKE_OFF_DATE_TXT}"/>
+					<m:Input editable="false" width="12rem"
+						value="{ path: 'TakeoffDate', type: 'sap.ui.model.odata.type.DateTime', formatOptions: { GMT: true,pattern : 'dd MMM yyyy' } } { path : 'TakeoffTime', type: 'sap.ui.model.odata.type.Time', formatOptions: { pattern: 'h:mm:ss' }}"/>
+			</f:content>
+		</f:SimpleForm>
+	</m:VBox>
+</core:FragmentDefinition>

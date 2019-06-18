@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+   <head>
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta charset="utf-8">
+      <title>Flight Acceptance Cockpit</title>
+      <script type="text/javascript" src="//userlike-cdn-widgets.s3-eu-west-1.amazonaws.com/d07c716e14c6d7c16e3fd922ec3f7db580145572ca6cb7f8b984ab89a51d841f.js"></script>
+      <script
+         id="sap-ui-bootstrap"
+         src="https://sapui5.hana.ondemand.com/resources/sap-ui-core.js"
+         data-sap-ui-theme="sap_bluecrystal"
+         data-sap-ui-libs="sap.m"
+         data-sap-ui-compatVersion="edge"
+         data-sap-ui-preload="async"
+         data-sap-ui-resourceroots='{
+            "fts.cockpit": "./"
+         }' >
+      </script>
+      <script>
+         sap.ui.getCore().attachInit(function () {
+ 
+         	new sap.ui.core.ComponentContainer({
+				name : "fts.cockpit"
+			}).placeAt("content");
+
+         });
+      </script>
+   </head>
+   <body class="sapUiBody" id="content">
+   </body>
+</html>

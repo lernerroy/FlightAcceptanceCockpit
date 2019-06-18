@@ -1,0 +1,35 @@
+{
+    "application": {
+        "id": "",
+        "title": "fts.cockpit.AnupsFAC",
+        "description": "Flight Order Acceptance ",
+        "type": "SAP_UI5_Component",
+        "componentUrl": "/webapp",
+        "appUrl": "#AnupsFAC-Display",
+        "navigationComponentName": "fts.cockpit",
+        "intentSemanticObject": "AnupsFAC",
+        "intentAction": "Display",
+        "html5ApplicationName": "anupsfac",
+        "HCPParentApplicationName": ""
+    },
+    "assignment": {
+        "groups": [
+            "da68b5b0-982a-4ddf-8da0-c978220f6d30-1516096643477"
+        ],
+        "contentPackages": [
+            "6fb1b04b-039a-47c1-9cf1-5bd3f2808e05-1516096339132"
+        ],
+        "categories": []
+    },
+    "tile": {
+        "type": "StaticTile",
+        "title": "Flight Order Acceptance ",
+        "subtitle": "FTS",
+        "searchKeywords": "Flight Order Acceptance ,FTS",
+        "displayIconUrl": "sap-icon://approvals",
+        "displayInfoText": "",
+        "size": "1x1",
+        "serviceURL": "",
+        "refreshInterval": ""
+    }
+}

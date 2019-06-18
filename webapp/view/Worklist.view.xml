@@ -1,0 +1,91 @@
+<mvc:View controllerName="fts.cockpit.controller.Worklist" xmlns="sap.m" xmlns:core="sap.ui.core" xmlns:mvc="sap.ui.core.mvc"
+	xmlns:semantic="sap.m.semantic" xmlns:footerbar="sap.ushell.ui.footerbar">
+	<semantic:FullscreenPage id="page" navButtonPress="onNavBack" showNavButton="true" title="{i18n>worklistViewTitle}">
+		<semantic:content>
+			<IconTabBar id="iconTabBar" select="onQuickFilter" expandable="false" applyContentPadding="false">
+				<items>
+					<IconTabFilter key="all" showAll="true" count="{i18n>worklistFilterProductsAllCount}" text="{i18n>worklistFilterProductsAll}"/>
+					<IconTabSeparator/>
+					<IconTabFilter key="Approved" icon="sap-icon://approvals" iconColor="Positive" text="{i18n>worklistFilterApproved}"
+						count="{worklistView>/cheap}"/>
+					<IconTabFilter key="Saved" icon="sap-icon://save" iconColor="Critical" text="{i18n>worklistFilterSaved}" count="{worklistView>/moderate}"/>
+					<IconTabFilter key="Errored" icon="sap-icon://status-error" iconColor="Negative" text="{i18n>worklistFilterErrored}"
+						count="{worklistView>/expensive}"/>
+				</items>
+				<content>
+					<Table id="table" width="auto" class="sapUiResponsiveMargin"
+						items="{ path: '/FlightSegmentHeaderSet', sorter: { path: 'Preaufnr', descending: false } }" noDataText="{worklistView>/tableNoDataText}"
+						busyIndicatorDelay="{worklistView>/tableBusyDelay}" growing="true" growingScrollToLoad="true" updateFinished="onUpdateFinished">
+						<headerToolbar>
+							<Toolbar>
+								<Title id="tableHeader" text="{worklistView>/worklistTableTitle} BOG"/>
+								<ToolbarSpacer/>
+								<SearchField id="searchField" tooltip="{i18n>worklistSearchTooltip}" search="onSearch" width="auto"></SearchField>
+							</Toolbar>
+						</headerToolbar>
+						<columns>
+							<Column id="flightnoColumn">
+								<Text text="{i18n>flightnoColumnTitle}"/>
+							</Column>
+							<Column id="PortsColumn">
+								<Text text="{i18n>PortsColumnTitle}"/>
+							</Column>
+							<!--	<Column id="DepairpColumn">
+								<Text text="{i18n>DepairpColumnTitle}"/>
+							</Column>-->
+							<Column id="PrearrtimeColumn" demandPopin="true" minScreenWidth="Tablet">
+								<Text text="{i18n>PrearrtimeColumnTitle}"/>
+							</Column>
+							<!--	<Column id="PredeptimeColumn">
+								<Text text="{i18n>PredeptimeColumnTitle}"/>
+							</Column>-->
+							<Column id="DeptimeColumn" demandPopin="true" minScreenWidth="Tablet">
+								<Text text="{i18n>DeptimeColumnTitle}"/>
+							</Column>
+							<!--	<Column id="PrearrtimeColumn">
+								<Text text="{i18n>PrearrtimeColumnTitle}"/>
+							</Column>-->
+							<Column id="TailnoColumn" hAlign="End" demandPopin="true" minScreenWidth="Tablet">
+								<Text text="{i18n>TailnoColumnTitle}"/>
+							</Column>
+							<Column id="AircrafttypeColumn" hAlign="End" demandPopin="false" minScreenWidth="Tablet">
+								<Text text="{i18n>AircrafttypeColumnTitle}"/>
+							</Column>
+							<Column id="StatusColumn" hAlign="End" demandPopin="true">
+								<Text text="{i18n>StatusColumnTitle}"/>
+							</Column>
+						</columns>
+						<items>
+							<ColumnListItem type="Navigation" press="onPress">
+								<cells>
+									<ObjectIdentifier title="{Precarriercode} {Preflightno} / {Carriercode}{Flightno}" text="{Preaufnr} / {Aufnr}" titleActive="true"
+										titlePress="onShowDetailPopover"/>
+									<Text text="{Predepairp} -> {Arrairp}"/>
+									<!--<Text text="{Depairp}"/>-->
+									<Text
+										text="{ path : 'Prearrdate', type: 'sap.ui.model.type.Date', formatOptions: { pattern: 'dd/MM/yyyy' } } - { path : 'Prearrtime', type: 'sap.ui.model.odata.type.Time', formatOptions: { pattern: 'h:mm' } }"/>
+									<!--<Text text="{Predeptime}"/>-->
+									<Text
+										text="{ path : 'Depdate', type: 'sap.ui.model.type.Date', formatOptions: { pattern: 'dd/MM/yyyy' } } - { path : 'Deptime', type: 'sap.ui.model.odata.type.Time', formatOptions: { pattern: 'h:mm' } }"/>
+									<!--<Text text="{Prearrtime}"/>-->
+									<Link text="{Pretailno}" href="https://www.flightradar24.com/data/aircraft/{Pretailno}" target="_blank"/>
+									<Text text="{Preaircrafttype}"/>
+									<core:Icon id="icon2" src="sap-icon://status-error" color="Negative" tooltip="Airport Charges"/>
+								</cells>
+							</ColumnListItem>
+						</items>
+					</Table>
+				</content>
+			</IconTabBar>
+		</semantic:content>
+		<semantic:sendEmailAction>
+			<semantic:SendEmailAction id="shareEmail" press="onShareEmailPress"/>
+		</semantic:sendEmailAction>
+		<semantic:shareInJamAction>
+			<semantic:ShareInJamAction id="shareInJam" visible="{FLP>/isShareInJamActive}" press="onShareInJamPress"/>
+		</semantic:shareInJamAction>
+		<semantic:saveAsTileAction>
+			<footerbar:AddBookmarkButton id="shareTile" title="{worklistView>/saveAsTileTitle}"/>
+		</semantic:saveAsTileAction>
+	</semantic:FullscreenPage>
+</mvc:View>

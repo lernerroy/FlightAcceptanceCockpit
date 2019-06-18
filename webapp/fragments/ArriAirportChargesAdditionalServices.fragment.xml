@@ -1,0 +1,62 @@
+<core:FragmentDefinition xmlns="sap.m" xmlns:core="sap.ui.core">
+	<TableSelectDialog noDataText="{i18n>TXT_NO_ADDITIONAL_SERVICE_TXT}" title="{i18n>TIT_SELECT_ADDTIONAL_SERV_TXT}" search="fnOnAdditionalServiceSearch"
+		confirm="fnAddAdditionalServices" cancel="fnOnCancelAdditionalServicesDailog"
+		items="{oAdditinalFlightServiceModel>/Data}"
+		multiSelect="true">
+		<ColumnListItem>
+			<cells>
+				<ObjectIdentifier text="{oAdditinalFlightServiceModel>Direction}" />
+				<!--<core:Icon src="sap-icon://status-positive" color="{= ${oAdditinalFlightServiceModel>Direction} ===1 ? '#64E4CE': '#FF4B4B'}"></core:Icon>-->
+				<Text text="{oAdditinalFlightServiceModel>CtrExists}"/>
+				<Text text="{oAdditinalFlightServiceModel>CtrVendorDesc}"/>
+				<Text text="{oAdditinalFlightServiceModel>SrvcCode}"/>
+				<Text text="{oAdditinalFlightServiceModel>SrvcDesc}"/>
+				<Text text="{oAdditinalFlightServiceModel>Quantity}"/>
+				<Text text="{oAdditinalFlightServiceModel>Price}"/>
+				<Text text="{oAdditinalFlightServiceModel>TotalPrice}"/>
+			</cells>
+		</ColumnListItem>
+		<columns>
+			<Column >
+				<header>
+					<Text text="{i18n>LBL_INT_LINE_TXT}"/>
+				</header>
+			</Column>
+			<Column minScreenWidth="Desktop" demandPopin="true" hAlign="Center">
+				<header>
+					<Text text="{i18n>LBL_ROUTINE_TXT}"/>
+				</header>
+			</Column>
+			<Column minScreenWidth="Desktop" demandPopin="true" hAlign="Center">
+				<header>
+					<Text text="{i18n>LBL_VENDOR_TXT}"/>
+				</header>
+			</Column>
+			<Column minScreenWidth="Desktop" demandPopin="true" hAlign="Center">
+				<header>
+					<Text text="{i18n>LBL_SERVICE_TXT}"/>
+				</header>
+			</Column>
+			<Column minScreenWidth="Desktop" demandPopin="true" hAlign="Center">
+				<header>
+					<Text text="{i18n>LBL_VENDOR_DESC_TXT}"/>
+				</header>
+			</Column>
+			<Column minScreenWidth="Desktop" demandPopin="true" hAlign="Center">
+				<header>
+					<Text text="{i18n>LBL_QTY_TXT}"/>
+				</header>
+			</Column>
+			<Column minScreenWidth="Desktop" demandPopin="true" hAlign="Center">
+				<header>
+					<Text text="{i18n>LBL_PRICE_TXT}"/>
+				</header>
+			</Column>
+			<Column  hAlign="End">
+				<header>
+					<Text text="{i18n>LBL_TOTAL_TXT}"/>
+				</header>
+			</Column>
+		</columns>
+	</TableSelectDialog>
+</core:FragmentDefinition>

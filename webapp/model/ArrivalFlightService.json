@@ -1,0 +1,25 @@
+{
+  "ArrivalFlightCollection": [
+    {
+	    "Exce" :"",
+		"Vendor" :"AV01-AEROVIAS DELCO",
+		"ShortText":"Cabin Cleaning",
+		"UnitPri" :"6,00",
+		"Qty":"2,00",
+		"NetV":"12,00",
+		"Currency" :"COP",
+		"CtrUseageType" :""
+    },
+    {
+     "Exce" :"",
+		"Vendor" :"AV01-AEROVIAS DELCO",
+		"ShortText":"Landing",
+		"UnitPri" :"6,00",
+		"Qty":"2,00",
+		"NetV":"12,00",
+		"Currency" :"COP",
+		"CtrUseageType" :""
+    }
+    
+  ]
+}

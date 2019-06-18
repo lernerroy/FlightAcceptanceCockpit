@@ -1,0 +1,111 @@
+<mvc:View controllerName="fts.cockpit.controller.Object" xmlns:m="sap.m" xmlns:mvc="sap.ui.core.mvc" xmlns:semantic="sap.m.semantic"
+	xmlns:footerbar="sap.ushell.ui.footerbar" xmlns="sap.uxap" xmlns:layout="sap.ui.layout" xmlns:core="sap.ui.core"
+	xmlns:f="sap.ui.layout.form">
+	<semantic:FullscreenPage id="fpDetailPage" navButtonPress="onNavBack" showNavButton="true" title="{i18n>worklistViewTitle}"
+		showFooter="false">
+		<semantic:content>
+			<ObjectPageLayout id="objectPageLayout" enableLazyLoading="false" subSectionLayout="TitleOnLeft" showTitleInHeaderContent="true"
+				showHeaderContent="true">
+				<headerTitle>
+					<ObjectPageHeader objectImageURI="{imageModel>/path}/image/380.jpg" objectImageShape="Circle" objectTitle="{i18n>TIT_FLIGHT_ORDER_TXT}"
+						objectSubtitle="{Aufnr} " objectImageAlt="{Aufnr} {Preaufnr}" id="ObjectPageLayoutHeaderTitle" isObjectIconAlwaysVisible="false"
+						isObjectTitleAlwaysVisible="false" isObjectSubtitleAlwaysVisible="false" isActionAreaAlwaysVisible="true" showPlaceholder="true">
+						<actions>
+					<ObjectPageHeaderActionButton icon="sap-icon://edit" text="{i18n>BTN_EDIT_TXT}" type="Emphasized" tooltip="{i18n>BTN_EDIT_TXT}" press="fnEditFilghtOrder"/>
+					<ObjectPageHeaderActionButton icon="sap-icon://display" text="{i18n>BTN_DISPLAY_TXT}" type="Emphasized" tooltip="{i18n>BTN_DISPLAY_TXT}" press="fnDisplayFilghtOrder"/>
+				</actions>
+					</ObjectPageHeader>
+				</headerTitle>
+				<headerContent>
+					<layout:VerticalLayout>
+						<layout:VerticalLayout>
+							<m:Label text="{Preaufnr}"/>
+						</layout:VerticalLayout>
+						<layout:HorizontalLayout>
+							<m:Image src="https://ibb.co/ykvhb72"/>
+							<m:Image src="./test-resources/sap/uxap/images/Twitter.png"/>
+						</layout:HorizontalLayout>
+					</layout:VerticalLayout>
+					<layout:VerticalLayout class="sapUiLargeMarginBeginEnd">
+						<m:HBox>
+							<m:Label text="{i18n>LBL_TAIL_NUMBER_TXT}" design="Bold" class="sapUiTinyMarginEnd"/>
+							<m:Label text="{Pretailno}"/>
+						</m:HBox>
+						<m:HBox>
+							<m:Label text="{i18n>LBL_ROUTE_OWNER_TXT}" design="Bold" class="sapUiTinyMarginEnd"/>
+							<m:Label text="{Precarriercode}"/>
+						</m:HBox>
+					</layout:VerticalLayout>
+					<layout:VerticalLayout class="sapUiLargeMarginBeginEnd ">
+						<m:HBox>
+							<m:Label text="{i18n>LBL_ARRIVAL_FLIGHT_TXT}" design="Bold" class="sapUiTinyMarginEnd"/>
+							<m:Label text="{Precarriercode}{Preflightno} {Predepairp}-{Prearrairp}"/>
+						</m:HBox>
+						<m:HBox>
+							<m:Label text="{i18n>LBL_DEPARTURE_FLIGHT_TXT}" design="Bold" class="sapUiTinyMarginEnd"/>
+							<m:Label text="{Precarriercode}{Flightno} {Prearrairp}-{Arrairp}"/>
+						</m:HBox>
+					</layout:VerticalLayout>
+					<layout:VerticalLayout class="sapUiLargeMarginBeginEnd">
+						<m:HBox>
+							<m:Label text="{i18n>LBL_ARRIVE_DATETIME_TXT}" design="Bold" class="sapUiTinyMarginEnd"/>
+							<m:Label text="{ path: 'Prearrdate', type: 'sap.ui.model.odata.type.DateTime', formatOptions: { GMT: true,pattern : 'dd MMM yyyy' } } "
+								class="sapUiTinyMarginEnd"/>
+							<m:Label text="{ path : 'Prearrtime', type: 'sap.ui.model.odata.type.Time', formatOptions: { pattern: 'h:mm:ss' }} "/>
+						</m:HBox>
+						<m:HBox>
+							<m:Label text="{i18n>LBL_DEPARTURE_DATETIME_TXT}" design="Bold" class="sapUiTinyMarginEnd"/>
+							<m:Label text="{ path: 'Depdate', type: 'sap.ui.model.odata.type.DateTime', formatOptions: { GMT: true,pattern : 'dd MMM yyyy' } }"
+								class="sapUiTinyMarginEnd"/>
+							<m:Label text=" { path : 'Deptime', type: 'sap.ui.model.odata.type.Time', formatOptions: { pattern: 'h:mm:ss' }} "/>
+						</m:HBox>
+					</layout:VerticalLayout>
+				</headerContent>
+				<sections>
+					<ObjectPageSection title="{i18n>TIT_FLIGHT_TIME_DET_TXT}">
+						<subSections>
+							<ObjectPageSubSection>
+								<blocks>
+								<core:Fragment fragmentName="fts.cockpit.fragments.FlightTimeDetails" type="XML"/>
+								</blocks>
+							</ObjectPageSubSection>
+						</subSections>
+					</ObjectPageSection>
+					<ObjectPageSection title="{i18n>TIT_PASSANGER_DETAILS_TXT}">
+						<subSections>
+							<ObjectPageSubSection >
+								<blocks>
+									<core:Fragment fragmentName="fts.cockpit.fragments.PassangerDetails" type="XML"/>
+								</blocks>
+							</ObjectPageSubSection>
+						</subSections>
+					</ObjectPageSection>
+					<ObjectPageSection title="{i18n>TIT_AIRPORT_CHARGES_TXT}">
+						<subSections>
+							<ObjectPageSubSection >
+								<blocks>
+									<core:Fragment fragmentName="fts.cockpit.fragments.LobFlightService" type="XML"/>
+								</blocks>
+							</ObjectPageSubSection>
+						</subSections>
+					</ObjectPageSection>
+					<ObjectPageSection title="{i18n>TIT_CARGO_CHARGES_TXT}">
+						<subSections>
+							<ObjectPageSubSection>
+								<blocks>
+									<core:Fragment fragmentName="fts.cockpit.fragments.CargoDetails" type="XML"/>
+								</blocks>
+							</ObjectPageSubSection>
+						</subSections>
+					</ObjectPageSection>
+				</sections>
+			</ObjectPageLayout>
+		</semantic:content>
+		<!--	<semantic:sendEmailAction>
+			<semantic:SendEmailAction id="shareEmail" press="onShareEmailPress"/>
+		</semantic:sendEmailAction>-->
+		<semantic:saveAsTileAction>
+			<footerbar:AddBookmarkButton id="shareTile" title="SUBMIT" enabled="{objectView>/editFlightData}" press="fnOnSubmitFlightData"/>
+		</semantic:saveAsTileAction>
+	</semantic:FullscreenPage>
+</mvc:View>

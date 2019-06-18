@@ -1,0 +1,98 @@
+<core:FragmentDefinition xmlns:m="sap.m" xmlns:mvc="sap.ui.core.mvc" xmlns:semantic="sap.m.semantic"
+	xmlns:footerbar="sap.ushell.ui.footerbar" xmlns="sap.uxap" xmlns:layout="sap.ui.layout" xmlns:core="sap.ui.core"
+	xmlns:f="sap.ui.layout.form">
+	<m:VBox>
+		<!--	<f:SimpleForm id="arrivalFlightPassangerDetails" editable="true" layout="ResponsiveGridLayout" labelSpanXL="4" labelSpanL="4"
+									labelSpanM="12" labelSpanS="12" adjustLabelSpan="false" emptySpanXL="0" emptySpanL="0" emptySpanM="0" emptySpanS="0" columnsXL="2"
+									columnsL="2" columnsM="1" singleContainerFullSize="false">
+									<f:content>
+										<core:Title text="{i18n>LBL_ARRIVAL_FLIGHT_PASSANGER_DETAILS_TXT}" emphasized="true" level="H3"/>
+										<m:Label text="{i18n>LBL_FIRST_CLASS_TXT}"/>
+										<m:Input value="0" enabled="false"/>
+										<m:Label text="{i18n>LBL_BUSINESS_CLASS_TXT}"/>
+										<m:Input value="0" enabled="false"/>
+										<m:Label text="{i18n>LBL_ECONOMY_CLASS_TXT}"/>
+										<m:Input value="0" enabled="false"/>
+										<m:Label text="{i18n>LBL_TOTAL_PASSANGERS_TXT}"/>
+										<m:Input value="0" enabled="false"/>
+										<core:Title text="Departure Flight Passanger Details" emphasized="true" level="H3"/>
+										<m:Label text="{i18n>LBL_FIRST_CLASS_TXT}"/>
+										<m:Input value="0" enabled="false"/>
+										<m:Label text="{i18n>LBL_BUSINESS_CLASS_TXT}"/>
+										<m:Input value="0" enabled="false"/>
+										<m:Label text="{i18n>LBL_ECONOMY_CLASS_TXT}"/>
+										<m:Input value="0" enabled="false"/>
+										<m:Label text="{i18n>LBL_TOTAL_PASSANGERS_TXT}"/>
+										<m:Input value="0" enabled="false"/>
+									</f:content>
+								</f:SimpleForm>-->
+		<layout:Grid class="sapUiTinyMargin" hSpacing="0.5" vSpacing="0.5" defaultSpan="L6 M6 S12" defaultIndent="L0 M0 S0" width="100%">
+			<layout:content width="100%">
+				<m:HBox wrap="Wrap" width="100%">
+					<m:FlexBox alignItems="Start" width="100%" class="sapUiMediumMarginBottom">
+						<m:items>
+							<m:Title level="H2" titleStyle="H2" text="{i18n>LBL_ARRIVAL_FLIGHT_PASSANGER_DETAILS_TXT}" wrapping="true">
+								<m:layoutData>
+									<m:FlexItemData growFactor="3"/>
+								</m:layoutData>
+							</m:Title>
+						</m:items>
+					</m:FlexBox>
+					<m:VBox class="sapUiMediumMarginBeginEnd">
+						<m:Label text="{i18n>LBL_FIRST_CLASS_TXT}"/>
+						<m:Input width="12rem" value="{oPassangerModel>/oData/FirstClassPax}" enabled="{objectView>/editFlightData}"/>
+					</m:VBox>
+					<m:VBox class="sapUiMediumMarginBeginEnd">
+						<m:Label text="{i18n>LBL_BUSINESS_CLASS_TXT}"/>
+						<m:Input width="12rem" value="{oPassangerModel>/oData/BusClassPax}" enabled="{objectView>/editFlightData}"/>
+					</m:VBox>
+					<m:VBox class="sapUiTinyMarginTop sapUiMediumMarginBeginEnd">
+						<m:Label text="{i18n>LBL_PERMIM_CLASS_TXT}"/>
+						<m:Input width="12rem" value="{oPassangerModel>/oData/PremEcoPax}" enabled="{objectView>/editFlightData}"/>
+					</m:VBox>
+					<m:VBox class="sapUiTinyMarginTop sapUiMediumMarginBeginEnd">
+						<m:Label text="{i18n>LBL_ECONOMY_CLASS_TXT}"/>
+						<m:Input width="12rem" value="{oPassangerModel>/oData/EcoPax}" enabled="{objectView>/editFlightData}"/>
+					</m:VBox>
+					<!--<m:VBox class="sapUiTinyMarginTop sapUiMediumMarginBeginEnd">
+						<m:Label text="{i18n>LBL_ECONOMY_CLASS_TXT}"/>
+						<m:Input width="12rem" value="0" enabled="{objectView>/editFlightData}"/>
+					</m:VBox>-->
+					<m:VBox class="sapUiTinyMarginTop sapUiMediumMarginBeginEnd">
+						<m:Label text="{i18n>LBL_TOTAL_PASSANGERS_TXT}"/>
+						<m:Input width="12rem" value="{oPassangerModel>/oData/TotalPax}" enabled="{objectView>/editFlightData}"/>
+					</m:VBox>
+				</m:HBox>
+				<m:VBox class="sapUiMediumMarginBottom">
+					<m:Title text="Arrival Flight Passanger Details" level="H2" titleStyle="H2" wrapping="true"/>
+				</m:VBox>
+				<m:HBox wrap="Wrap" width="100%">
+					<m:VBox class="sapUiMediumMarginBeginEnd">
+						<m:Label text="{i18n>LBL_FIRST_CLASS_TXT}"/>
+						<m:Input width="12rem" value="{oDeparturePassangerModel>/oData/FirstClassPax}" enabled="{objectView>/editFlightData}"/>
+					</m:VBox>
+					<m:VBox class="sapUiMediumMarginBeginEnd">
+						<m:Label text="{i18n>LBL_BUSINESS_CLASS_TXT}"/>
+						<m:Input width="12rem" value="{oDeparturePassangerModel>/oData/BusClassPax}" enabled="{objectView>/editFlightData}"/>
+					</m:VBox>
+					<m:VBox class="sapUiTinyMarginTop sapUiMediumMarginBeginEnd">
+						<m:Label text="{i18n>LBL_PERMIM_CLASS_TXT}"/>
+						<m:Input width="12rem" value="{oDeparturePassangerModel>/oData/PremEcoPax}" enabled="{objectView>/editFlightData}"/>
+					</m:VBox>
+					<m:VBox class="sapUiTinyMarginTop sapUiMediumMarginBeginEnd">
+						<m:Label text="{i18n>LBL_ECONOMY_CLASS_TXT}"/>
+						<m:Input width="12rem" value="{oDeparturePassangerModel>/oData/EcoPax}" enabled="{objectView>/editFlightData}"/>
+					</m:VBox>
+					<!--<m:VBox class="sapUiTinyMarginTop sapUiMediumMarginBeginEnd">
+						<m:Label text="{i18n>LBL_ECONOMY_CLASS_TXT}"/>
+						<m:Input width="12rem" value="0" enabled="{objectView>/editFlightData}"/>
+					</m:VBox>-->
+					<m:VBox class="sapUiTinyMarginTop sapUiMediumMarginBeginEnd">
+						<m:Label text="{i18n>LBL_TOTAL_PASSANGERS_TXT}"/>
+						<m:Input width="12rem" value="{oDeparturePassangerModel>/oData/TotalPax}" enabled="{objectView>/editFlightData}"/>
+					</m:VBox>
+				</m:HBox>
+			</layout:content>
+		</layout:Grid>
+	</m:VBox>
+</core:FragmentDefinition>

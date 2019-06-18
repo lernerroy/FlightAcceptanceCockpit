@@ -1,0 +1,86 @@
+<core:FragmentDefinition xmlns:m="sap.m" xmlns:mvc="sap.ui.core.mvc" xmlns:semantic="sap.m.semantic"
+	xmlns:footerbar="sap.ushell.ui.footerbar" xmlns="sap.uxap" xmlns:layout="sap.ui.layout" xmlns:core="sap.ui.core"
+	xmlns:f="sap.ui.layout.form">
+	<m:HBox wrap="{= ${device>/system/phone} ? 'Wrap' : 'NoWrap'}">
+		<layout:ResponsiveSplitter defaultPane="default">
+			<layout:PaneContainer >
+				<layout:SplitPane requiredParentWidth="450">
+					<m:Table id="arrivalFlightService" items="{oArrivalFlightChargesModel>/Data}">
+					<!--	{ path: 'oArrivalFlightChargesModel>/Data', filters : [{ path : 'AdditionalFlag', operator : 'EQ', value1: 'X' }]}-->
+						<m:headerToolbar>
+							<m:OverflowToolbar>
+								<m:Title text="{i18n>LBL_ARRIVAL_FLIGHT_CHARGES_TXT}" level="H2"/>
+								<m:ToolbarSpacer/>
+								<m:Button text="{i18n>BTN_ADDITIONAL_SERVICES}" iconFirst="true" icon="sap-icon://add" press="fnOpenAdditionalServicesDailog"/>
+							</m:OverflowToolbar>
+						</m:headerToolbar>
+						<m:columns>
+							<m:Column width="3.5rem"><m:Text text="{i18n>LBL_EXCE_TXT}"/></m:Column>
+							<m:Column minScreenWidth="Tablet" demandPopin="true"><m:Text text="{i18n>LBL_VENDOR_NAME_TXT}"/></m:Column>
+							<m:Column minScreenWidth="Tablet" demandPopin="true"><m:Text text="{i18n>LBL_VENDOR_DESC_TXT}"/></m:Column>
+							<m:Column minScreenWidth="Tablet" demandPopin="true" hAlign="Center"><m:Text text="{i18n>LBL_PRICE_TXT}"/></m:Column>
+							<m:Column minScreenWidth="Tablet" demandPopin="true" width="5rem"><m:Text text="{i18n>LBL_QTY_TXT}"/></m:Column>
+							<m:Column minScreenWidth="Tablet" demandPopin="true"><m:Text text="{i18n>LBL_TOTAL_TXT}"/></m:Column>
+							<m:Column minScreenWidth="Tablet" demandPopin="true"><m:Text text="{i18n>LBL_CURRENCY_TXT}"/></m:Column>
+							<m:Column minScreenWidth="Tablet" demandPopin="true"><m:Text text="{i18n>LBL_USEAGE_TYPE_TXT}"/></m:Column>
+							<m:Column minScreenWidth="Tablet" demandPopin="true" width="2rem"><m:Text text=""/></m:Column>
+						</m:columns>
+						<m:items>
+							<m:ColumnListItem >
+								<m:cells>
+									<core:Icon src="sap-icon://status-positive" color="{= ${oArrivalFlightChargesModel>Direction} ===1 ? '#64E4CE': '#FF4B4B'}"></core:Icon>
+									<m:Text text="{oArrivalFlightChargesModel>CtrVendorDesc}"/>
+									<m:Text text="{oArrivalFlightChargesModel>SrvcDesc}"/>
+									<m:Text text="{oArrivalFlightChargesModel>Price}"/>
+									<m:Input value="{oArrivalFlightChargesModel>Quantity}" editable="{objectView>/editFlightData}"/>
+									<m:Text text="{oArrivalFlightChargesModel>TotalPrice}"/>
+									<m:Text text="{oArrivalFlightChargesModel>CtrWaers}"/>
+									<m:Text text="{oArrivalFlightChargesModel>CtrUsageType}"/>
+									<m:Button icon="sap-icon://delete" type="Transparent" visible="{= ${oArrivalFlightChargesModel>AdditionalFlag} === 'X' ? true : false}" press="fnOnDeleteArrivalAirportCharges"
+									/>
+								</m:cells>
+							</m:ColumnListItem>
+						</m:items>
+					</m:Table>
+				</layout:SplitPane>
+				<layout:SplitPane requiredParentWidth="450">
+					<m:Table id="departureFlightService" items="{oDepartureFlightChargesModel>/oDepartFlightData}">
+						<m:headerToolbar>
+							<m:OverflowToolbar>
+								<m:Title text="{i18n>TIT_DEPART_FLIGHT_CHARGES_TXT}" level="H2"/>
+								<m:ToolbarSpacer/>
+								<m:Button text="{i18n>BTN_ADDITIONAL_SERVICES}" iconFirst="true" icon="sap-icon://add" press="fnOpenDepartureAdditionalChargesDailog"/>
+							</m:OverflowToolbar>
+						</m:headerToolbar>
+						<m:columns >
+							<m:Column width="3.5em"><m:Text text="{i18n>LBL_EXCE_TXT}"/></m:Column>
+							<m:Column minScreenWidth="Tablet" demandPopin="true"><m:Text text="{i18n>LBL_VENDOR_NAME_TXT}" wrapping="true"/></m:Column>
+							<m:Column minScreenWidth="Tablet" demandPopin="true"><m:Text text="{i18n>LBL_VENDOR_DESC_TXT}"/></m:Column>
+							<m:Column minScreenWidth="Tablet" demandPopin="true"><m:Text text="{i18n>LBL_PRICE_TXT}"/></m:Column>
+							<m:Column minScreenWidth="Tablet" demandPopin="true" width="5rem"><m:Text text="{i18n>LBL_QTY_TXT}"/></m:Column>
+							<m:Column minScreenWidth="Tablet" demandPopin="true"><m:Text text="{i18n>LBL_TOTAL_TXT}"/></m:Column>
+							<m:Column minScreenWidth="Tablet" demandPopin="true"><m:Text text="{i18n>LBL_CURRENCY_TXT}"/></m:Column>
+							<m:Column minScreenWidth="Tablet" demandPopin="true"><m:Text text="{i18n>LBL_USEAGE_TYPE_TXT}"/></m:Column>
+							<m:Column minScreenWidth="Tablet" demandPopin="true" width="2rem"><m:Text text=""/></m:Column>
+						</m:columns>
+						<m:items>
+							<m:ColumnListItem>
+								<m:cells>
+									<core:Icon src="sap-icon://status-positive" color="#64E4CE"></core:Icon>
+									<m:Text text="{oDepartureFlightChargesModel>CtrVendorDesc}"/>
+									<m:Text text="{oDepartureFlightChargesModel>SrvcDesc}"/>
+									<m:Text text="{oDepartureFlightChargesModel>Price}"/>
+									<m:Input value="{oDepartureFlightChargesModel>Quantity}" editable="{objectView>/editFlightData}"/>
+									<m:Text text="{oDepartureFlightChargesModel>TotalPrice}"/>
+									<m:Text text="{oDepartureFlightChargesModel>CtrWaers}"/>
+									<m:Text text="{oDepartureFlightChargesModel>CtrUsageType}"/>
+									<m:Button icon="sap-icon://delete" type="Transparent" visible="{= ${oDepartureFlightChargesModel>AdditionalFlag} === 'X' ? true : false}" press="fnOnDeleteDepatAirportCharges"/>
+								</m:cells>
+							</m:ColumnListItem>
+						</m:items>
+					</m:Table>
+				</layout:SplitPane>
+			</layout:PaneContainer>
+		</layout:ResponsiveSplitter>
+	</m:HBox>
+</core:FragmentDefinition>

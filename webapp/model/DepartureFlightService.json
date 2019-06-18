@@ -1,0 +1,41 @@
+{
+  "DepartureFlightCollection": [
+    {
+	    "Exce":"",
+		"GrC":"",
+		"Service" :"800000",
+		"Vendor": "AV01-AREOVIAS DELCO",
+		"Vendor1" :"101000003",
+		"ShortText" :"Airbridge",
+		"UnitPri" :"6,00",
+		"Qty":"2,00",
+		"NetV":"12,00",
+		"Currency":"COP"
+    },
+    {
+    "Exce":"",
+		"GrC":"",
+		"Service" :"800035",
+		"Vendor": "AV01-AREOVIAS DELCO",
+		"Vendor1" :"101000003",
+		"ShortText" :"Parking Fee",
+		"UnitPri" :"6,00",
+		"Qty":"2,00",
+		"NetV":"12,00",
+		"Currency":"COP"
+    },
+    {
+    "Exce":"",
+		"GrC":"",
+		"Service" :"800016",
+		"Vendor": "AV01-AREOVIAS DELCO",
+		"Vendor1" :"101000003",
+		"ShortText" :"CUTE",
+		"UnitPri" :"6,00",
+		"Qty":"2,00",
+		"NetV":"12,00",
+		"Currency":"COP"
+    }
+    
+  ]
+}

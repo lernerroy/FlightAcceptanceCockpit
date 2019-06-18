@@ -1,0 +1,71 @@
+<core:FragmentDefinition xmlns="sap.m" xmlns:core="sap.ui.core">
+	<TableSelectDialog noDataText="{i18n>TXT_NO_ADDITIONAL_SERVICE_TXT}" title="{i18n>TIT_SELECT_ADDTIONAL_SERV_TXT}" search="fnOnDepartueAdditionalChargesSearch"
+		confirm="fnAddDepartureAdditionalCharges" cancel="fnOnCancelDepartureAdditionalChargesDailog"
+		items="{oDepartureAdditionalServiceFlightModel>/oDepartAddFlightChargesData}"
+		multiSelect="true">
+		<!--{ path: 'oDepartureAdditionalServiceFlightModel>/oDepartAddFlightChargesData', filters : [{ path : 'AdditionalFlag', operator : 'EQ', value1: '' }]}-->
+		<ColumnListItem>
+			<cells>
+				<ObjectIdentifier text="{oDepartureAdditionalServiceFlightModel>Direction}" />
+				<!--<core:Icon src="sap-icon://status-positive" color="{= ${oDepartureAdditionalServiceFlightModel>Direction} ===1 ? '#64E4CE': '#FF4B4B'}"></core:Icon>-->
+				<Text text="{oDepartureAdditionalServiceFlightModel>CtrExists}"/>
+				<Text text="{oDepartureAdditionalServiceFlightModel>CtrVendorDesc}"/>
+				<Text text="{oDepartureAdditionalServiceFlightModel>SrvcCode}"/>
+				<Text text="{oDepartureAdditionalServiceFlightModel>SrvcDesc}"/>
+				<Text text="{oDepartureAdditionalServiceFlightModel>Quantity}"/>
+				<Text text="{oDepartureAdditionalServiceFlightModel>Price}"/>
+				
+				<Text text="{oDepartureAdditionalServiceFlightModel>AdditionalFlag}"/>
+				
+				<Text text="{oDepartureAdditionalServiceFlightModel>TotalPrice}"/>
+			</cells>
+		</ColumnListItem>
+		<columns>
+			<Column >
+				<header>
+					<Text text="{i18n>LBL_INT_LINE_TXT}"/>
+				</header>
+			</Column>
+			<Column minScreenWidth="Desktop" demandPopin="true" hAlign="Center">
+				<header>
+					<Text text="{i18n>LBL_ROUTINE_TXT}"/>
+				</header>
+			</Column>
+			<Column minScreenWidth="Desktop" demandPopin="true" hAlign="Center">
+				<header>
+					<Text text="{i18n>LBL_VENDOR_TXT}"/>
+				</header>
+			</Column>
+			<Column minScreenWidth="Desktop" demandPopin="true" hAlign="Center">
+				<header>
+					<Text text="{i18n>LBL_SERVICE_TXT}"/>
+				</header>
+			</Column>
+			<Column minScreenWidth="Desktop" demandPopin="true" hAlign="Center">
+				<header>
+					<Text text="{i18n>LBL_VENDOR_DESC_TXT}"/>
+				</header>
+			</Column>
+			<Column minScreenWidth="Desktop" demandPopin="true" hAlign="Center">
+				<header>
+					<Text text="{i18n>LBL_QTY_TXT}"/>
+				</header>
+			</Column>
+			<Column minScreenWidth="Desktop" demandPopin="true" hAlign="Center">
+				<header>
+					<Text text="{i18n>LBL_PRICE_TXT}"/>
+				</header>
+			</Column>
+			<Column minScreenWidth="Desktop" demandPopin="true" hAlign="Center" visible="false">
+				<header>
+					<Text text="Additional Flag"/>
+				</header>
+			</Column>
+			<Column  hAlign="End">
+				<header>
+					<Text text="{i18n>LBL_TOTAL_TXT}"/>
+				</header>
+			</Column>
+		</columns>
+	</TableSelectDialog>
+</core:FragmentDefinition>

@@ -1,0 +1,74 @@
+<core:FragmentDefinition xmlns:m="sap.m" xmlns:mvc="sap.ui.core.mvc" xmlns:semantic="sap.m.semantic"
+	xmlns:footerbar="sap.ushell.ui.footerbar" xmlns="sap.uxap" xmlns:layout="sap.ui.layout" xmlns:core="sap.ui.core"
+	xmlns:f="sap.ui.layout.form">
+	<m:HBox wrap="{= ${device>/system/phone} ? 'Wrap' : 'NoWrap'}">
+		<layout:ResponsiveSplitter defaultPane="default">
+			<layout:PaneContainer >
+				<layout:SplitPane requiredParentWidth="450">
+					<m:Table id="CGArrivalFlightService" items="{oFlightCargoModel>/oData}">
+						<m:headerToolbar>
+							<m:OverflowToolbar>
+								<m:Title text="{i18n>LBL_ARRIV_CARGO_SERVICE_TXT}" level="H2"/>
+								<m:ToolbarSpacer/>
+							</m:OverflowToolbar>
+						</m:headerToolbar>
+						<m:columns>
+							<m:Column width="3.5rem"><m:Text text="{i18n>LBL_EXCE_TXT}"/></m:Column>
+							<m:Column minScreenWidth="Tablet" demandPopin="true"><m:Text text="{i18n>LBL_VENDOR_NAME_TXT}"/></m:Column>
+							<m:Column minScreenWidth="Tablet" demandPopin="true"><m:Text text="{i18n>LBL_VENDOR_DESC_TXT}"/></m:Column>
+							<m:Column minScreenWidth="Tablet" demandPopin="true" hAlign="Center"><m:Text text="{i18n>LBL_PRICE_TXT}"/></m:Column>
+							<m:Column minScreenWidth="Tablet" demandPopin="true"><m:Text text="{i18n>LBL_QTY_TXT}"/></m:Column>
+							<m:Column minScreenWidth="Tablet" demandPopin="true"><m:Text text="{i18n>LBL_TOTAL_TXT}"/></m:Column>
+							<m:Column minScreenWidth="Tablet" demandPopin="true"><m:Text text="{i18n>LBL_CURRENCY_TXT}"/></m:Column>
+						</m:columns>
+						<m:items>
+							<m:ColumnListItem >
+								<m:cells>
+									<core:Icon src="sap-icon://status-positive" color="#64E4CE"></core:Icon>
+									<m:Text text="{oFlightCargoModel>CtrVendorDesc}"/>
+									<m:Text text="{oFlightCargoModel>SrvcDesc}"/>
+									<m:Text text="{oFlightCargoModel>Price}"/>
+									<m:Input value="{oFlightCargoModel>Quantity}" editable="{objectView>/editFlightData}"/>
+									<m:Text text="{oFlightCargoModel>TotalPrice}"/>
+									<m:Text text="{oFlightCargoModel>CtrWaers}"/>
+								</m:cells>
+							</m:ColumnListItem>
+						</m:items>
+					</m:Table>
+				</layout:SplitPane>
+				<layout:SplitPane requiredParentWidth="450">
+					<m:Table id="CGDepartureFlightService" items="{oFlightCargoModel>/oData}">
+						<m:headerToolbar>
+							<m:OverflowToolbar>
+								<m:Title text="{i18n>LBL_DEPART_CARGO_SERVICE_TXT}" level="H2"/>
+								<m:ToolbarSpacer/>
+							</m:OverflowToolbar>
+						</m:headerToolbar>
+						<m:columns >
+							<m:Column width="5em"><m:Text text="{i18n>LBL_EXCE_TXT}"/></m:Column>
+							<m:Column minScreenWidth="Tablet" demandPopin="true"><m:Text text="{i18n>LBL_VENDOR_NAME_TXT}" wrapping="true"/></m:Column>
+							<m:Column minScreenWidth="Tablet" demandPopin="true"><m:Text text="{i18n>LBL_VENDOR_DESC_TXT}"/></m:Column>
+							<m:Column minScreenWidth="Tablet" demandPopin="true"><m:Text text="{i18n>LBL_PRICE_TXT}"/></m:Column>
+							<m:Column minScreenWidth="Tablet" demandPopin="true"><m:Text text="{i18n>LBL_QTY_TXT}"/></m:Column>
+							<m:Column minScreenWidth="Tablet" demandPopin="true"><m:Text text="{i18n>LBL_TOTAL_TXT}"/></m:Column>
+							<m:Column hAlign="End"><m:Text text="{i18n>LBL_CURRENCY_TXT}"/></m:Column>
+						</m:columns>
+						<m:items>
+							<m:ColumnListItem>
+								<m:cells>
+									<core:Icon src="sap-icon://status-positive" color="#64E4CE"></core:Icon>
+									<m:Text text="{oFlightCargoModel>CtrVendorDesc}"/>
+									<m:Text text="{oFlightCargoModel>SrvcDesc}"/>
+									<m:Text text="{oFlightCargoModel>Price}"/>
+									<m:Input value="{oFlightCargoModel>Quantity}"  editable="{objectView>/editFlightData}"/>
+									<m:Text text="{oFlightCargoModel>TotalPrice}"/>
+									<m:Text text="{oFlightCargoModel>CtrWaers}"/>
+								</m:cells>
+							</m:ColumnListItem>
+						</m:items>
+					</m:Table>
+				</layout:SplitPane>
+			</layout:PaneContainer>
+		</layout:ResponsiveSplitter>
+	</m:HBox>
+</core:FragmentDefinition>
